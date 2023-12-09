@@ -1,0 +1,139 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+data=[1,0,1,1,1,0]
+Time=np.arange(len(data)+1)
+signal_1=np.zeros(len(data)+1,dtype=int)
+for i in range(len(data)):
+    if data[i]==0:
+        signal_1[i]=0
+    else:
+        signal_1[i]=1
+
+
+
+
+
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+data=[1,0,1,1,1,0]
+Time=np.arange(len(data)+1)
+signal_1=np.zeros(len(data)+1,dtype=int)
+for i in range(len(data)):
+    if data[i]==0:
+        signal_1[i]=0
+    else:
+        signal_1[i]=1
+            
+    plt.title("UNIPOLAR ENCODDING")
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+plt.step(Time,signal_1,where="post")
+plt.text(0,2,data)
+plt.grid(True)
+plt.yticks([-3,-2,-1,0,1,2,3])
+plt.xticks(Time)
+
+plt.show()
+
+
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Get user input for data
+data_input= input("Enter a sequence of 0s and 1s (e.g., 101010): ")
+data = [int(bit) for bit in data_input]
+
+if data[0] == 0:
+    nrz_data = [1]
+else:
+    nrz_data = [-1]
+
+for i in range(len(data)):
+    if data[i] == 0:
+        nrz_data.append(1)
+    else:
+        nrz_data.append(-1)
+
+Time = np.arange(len(nrz_data))
+
+plt.title("NRZ-L Encoding")
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+plt.step(Time, nrz_data)
+plt.yticks([-3, -2, -1, 0, 1, 2, 3])
+plt.xticks(Time)
+plt.grid(True)
+plt.axhline(y=0, color="green")
+plt.show()
+
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+data_input=input("Enter data value:")
+data=[int(bit) for bit in data_input]
+print(data)
+#data=[0,1,0,0,1,1,1,0]
+
+bit=1
+signal_list=[1]
+
+for i in range(0,len(data)):
+    if data[i]==1:
+        if bit==1:
+            bit=-1
+        else:
+            bit=1
+    signal_list.append(bit)
+print(signal_list)
+Time=np.arange(0,len(signal_list))
+
+plt.title("NRZ-I Encoding")
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+plt.step(Time,signal_list)
+plt.yticks([-3,-2,-1,0,1,2,3])
+plt.xticks(Time)
+plt.axhline(y=0,color="green")
+plt.grid(True)
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+data_input=input()
+print(data_input)
+data=np.arange(0,len(data_input),0.5)
+signal=np.array([])
+for i in data_input:
+    if i=='1':
+        signal=np.append(signal,[1,0])
+    else:
+        signal=np.append(signal,[-1,0])
+Time=np.arange(0,len(data_input))
+
+plt.title("RZ Encoding")
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+plt.step(data,signal,where="post")
+plt.xticks(Time)
+plt.yticks([-3,-2,-1,0,1,2,3])
+plt.grid(True)
+
+
+
+
